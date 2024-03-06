@@ -1,0 +1,15 @@
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\bin\Debug\net7.0\mod1.exe
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\bin\Debug\net7.0\mod1.deps.json
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\bin\Debug\net7.0\mod1.runtimeconfig.json
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\bin\Debug\net7.0\mod1.dll
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\bin\Debug\net7.0\mod1.pdb
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\obj\Debug\net7.0\mod1.csproj.AssemblyReference.cache
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\obj\Debug\net7.0\mod1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\obj\Debug\net7.0\mod1.AssemblyInfoInputs.cache
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\obj\Debug\net7.0\mod1.AssemblyInfo.cs
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\obj\Debug\net7.0\mod1.csproj.CoreCompileInputs.cache
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\obj\Debug\net7.0\mod1.dll
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\obj\Debug\net7.0\refint\mod1.dll
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\obj\Debug\net7.0\mod1.pdb
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\obj\Debug\net7.0\mod1.genruntimeconfig.cache
+C:\Users\gabig\Desktop\Javra\mpp-proiect-csharp-gabriela612\mod1\obj\Debug\net7.0\ref\mod1.dll
