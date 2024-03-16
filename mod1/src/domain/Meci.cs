@@ -4,22 +4,28 @@ public class Meci : Entity<long>
 {
     private string nume;
     private double pret;
-    private int nrLocuriDisponibile;
+    private int capacitate;
+    private LocalDate data;
 
-    public Meci(string nume, double pret, int nrLocuriDisponibile)
+    public Meci(string nume, double pret, int capacitate, LocalDate data)
     {
         this.nume = nume;
         this.pret = pret;
-        this.nrLocuriDisponibile = nrLocuriDisponibile;
+        this.capacitate = capacitate;
+        this.data = data;
     }
 
     public string Nume => nume;
 
     public double Pret => pret;
 
-    public int NrLocuriDisponibile
+    public int capacitate
     {
-        get => nrLocuriDisponibile;
-        set => nrLocuriDisponibile = value;
+        get => capacitate;
+    }
+    
+    public int data
+    {
+        get => data;
     }
 }

@@ -3,15 +3,17 @@ namespace mod1.domain;
 public class Angajat : Entity<long>
 {
     private string parola;
+    private string username;
 
-    public Angajat(string parola)
+    public Angajat(string parola, string username)
     {
         this.parola = parola;
+        this.username = username;
     }
 
     protected bool Equals(Angajat other)
     {
-        return base.Equals(other) && parola == other.parola;
+        return base.Equals(other) || (parola == other.parola && username == other.username);
     }
 
     public override bool Equals(object? obj)
@@ -25,6 +27,6 @@ public class Angajat : Entity<long>
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(base.GetHashCode(), parola);
+        return HashCode.Combine(base.GetHashCode(), parola, username);
     }
 }
