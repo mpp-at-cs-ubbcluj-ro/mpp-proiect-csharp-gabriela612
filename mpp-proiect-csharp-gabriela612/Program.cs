@@ -21,14 +21,19 @@ static string GetConnectionStringByName(string name)
 }
 
 
-// Dictionary<String, string> props = new Dictionary<String, String>();
-// props.Add("ConnectionString", GetConnectionStringByName("baschetDB"));
-// Console.WriteLine("Hello, World!");
-// IBiletRepository angajatRepository = new BiletDBRepository((Dictionary<string, string>)props);
-// Console.WriteLine(angajatRepository.Size());
-// Meci meci = new Meci(null, 0, 0, DateOnly.MinValue);
-// meci.id = 1;
-// angajatRepository.Create(new Bilet(meci, "Petre Ispirescu", 7));
-// Console.WriteLine(angajatRepository.Size());
+Dictionary<String, string> props = new Dictionary<String, String>();
+props.Add("ConnectionString", GetConnectionStringByName("baschetDB"));
 
-Console.WriteLine("HELLO");
+IAngajatRepository angajatRepository = new AngajatDBRepository(props);
+Angajat angajat = angajatRepository.findByUsername("ionescu_ion");
+IMeciRepository meciRepository = new MeciDBRepository(props);
+Meci meci = meciRepository.FindOne(1);
+meciRepository.FindAll();
+IBiletRepository biletRepository = new BiletDBRepository(props);
+biletRepository.Create(new Bilet(meci, "Mihai Eminescu", 2));
+biletRepository.Size();
+
+
+
+
+

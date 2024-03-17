@@ -8,21 +8,26 @@ namespace mod1.repository;
 public class MeciDBRepository : IMeciRepository
 {
     private DBUtils dbUtils;
+    public static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     public MeciDBRepository(Dictionary<string, string> props)
     {
         dbUtils = new DBUtils(props);
+        logger.InfoFormat("Initializing MeciDBRepository with DBUtils: {0} ", dbUtils);
     }
 
     public Meci FindOne(int id)
     {
         Meci meci = null;
         
-        //log.InfoFormat("Entering findOne with value {0}", id);
+        logger.InfoFormat("Entering findOne with value {0}", id);
+        logger.InfoFormat("Getting a connection with db");
         IDbConnection con = dbUtils.GetConnection();
 
         using (var comm = con.CreateCommand())
         {
+            logger.InfoFormat("Prepare Statement: SELECT * FROM meciuri " +
+                              "WHERE id={0}", id);
             comm.CommandText = "SELECT * FROM meciuri WHERE id=@id";
             IDbDataParameter paramId = comm.CreateParameter();
             paramId.ParameterName = "@id";
@@ -39,12 +44,12 @@ public class MeciDBRepository : IMeciRepository
                     DateOnly data = DateUtils.FromString(dataR.GetString(4));
                     meci = new Meci(nume, pretBilet, capacitate, data);
                     meci.id = id;
-                    //log.InfoFormat("Exiting findOne with value {0}", task);
+                    logger.InfoFormat("Exiting findOne with value {0}", meci);
                     return meci;
                 }
             }
         }
-        //log.InfoFormat("Exiting findOne with value {0}", null);
+        logger.InfoFormat("Exiting findOne with wrong value {0}", meci);
         return meci;
     }
 
@@ -72,11 +77,13 @@ public class MeciDBRepository : IMeciRepository
     {
         HashSet<Meci> meciuri = new HashSet<Meci>();
         
-        //log.InfoFormat("Entering findOne with value {0}", id);
+        logger.InfoFormat("Entering findAll");
+        logger.InfoFormat("Getting a connection with db");
         IDbConnection con = dbUtils.GetConnection();
 
         using (var comm = con.CreateCommand())
         {
+            logger.InfoFormat("Prepare Statement: SELECT * FROM meciuri");
             comm.CommandText = "SELECT * FROM meciuri";
 
             using (var dataR = comm.ExecuteReader())
@@ -90,12 +97,12 @@ public class MeciDBRepository : IMeciRepository
                     DateOnly data = DateUtils.FromString(dataR.GetString(4));
                     Meci meci = new Meci(nume, pretBilet, capacitate, data);
                     meci.id = id;
-                    //log.InfoFormat("Exiting findOne with value {0}", task);
+                    logger.InfoFormat("Meci gasit : {0}", meci);
                     meciuri.Add(meci);
                 }
             }
         }
-        //log.InfoFormat("Exiting findOne with value {0}", null);
+        logger.InfoFormat("Exiting findAll with value {0}", meciuri);
         return meciuri;
     }
 }

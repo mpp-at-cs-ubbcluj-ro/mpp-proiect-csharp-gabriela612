@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v7.0": {
       "mpp-proiect-csharp-gabriela612/1.0.0": {
         "dependencies": {
-          "System.Data.SQLite": "1.0.118"
+          "System.Data.SQLite": "1.0.118",
+          "log4net": "2.0.16"
         },
         "runtime": {
           "mpp-proiect-csharp-gabriela612.dll": {}
@@ -30,6 +31,17 @@
           "lib/netstandard2.1/EntityFramework.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.400.420.21404"
+          }
+        }
+      },
+      "log4net/2.0.16": {
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/log4net.dll": {
+            "assemblyVersion": "2.0.16.0",
+            "fileVersion": "2.0.16.0"
           }
         }
       },
@@ -288,6 +300,13 @@
       "sha512": "sha512-yj1+/4tci7Panu3jKDHYizxwVm0Jvm7b7m057b5h4u8NUHGCR8WIWirBTw+8EptRffwftIWPBeIRGNKD1ewEMQ==",
       "path": "entityframework/6.4.4",
       "hashPath": "entityframework.6.4.4.nupkg.sha512"
+    },
+    "log4net/2.0.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6MoFh1BB83ZPiUHXlIJQZsoXSMlwnrNHmiPTGCobA6Ik3fmeNVLgEwF0MjxZtec2PfB0WdL81XCAtxjrummCCg==",
+      "path": "log4net/2.0.16",
+      "hashPath": "log4net.2.0.16.nupkg.sha512"
     },
     "Microsoft.CSharp/4.7.0": {
       "type": "package",

@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "A629log7MqZwsViXZn4sRvSzpbuxT3uJcPQ7w7oiy+COG+6b/ws9Ouhmg39q0PX0rXgYxGHFq9gSmJ7gKq21/w==",
+  "dgSpecHash": "EcAGxficR7x5G9rhyISIGD5qK52yFXFHiUxK7vOlYsK4Nu6Q3eBaC1M53ON+6XvgyfKcgGM0xooqq8nFWs5JOQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\gabig\\Desktop\\Cdiez\\mpp-proiect-csharp-gabriela612\\mpp-proiect-csharp-gabriela612\\mpp-proiect-csharp-gabriela612.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gabig\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\gabig\\.nuget\\packages\\log4net\\2.0.16\\log4net.2.0.16.nupkg.sha512",
     "C:\\Users\\gabig\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\gabig\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\gabig\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

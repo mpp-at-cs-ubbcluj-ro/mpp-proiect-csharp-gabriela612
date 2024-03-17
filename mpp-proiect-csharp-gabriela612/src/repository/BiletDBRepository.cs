@@ -7,10 +7,12 @@ namespace mod1.repository;
 public class BiletDBRepository : IBiletRepository
 {
     private DBUtils dbUtils;
+    public static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     public BiletDBRepository(Dictionary<string, string> props)
     {
         dbUtils = new DBUtils(props);
+        logger.InfoFormat("Initializing BiletDBRepository with DBUtils: {0} ", dbUtils);
     }
 
     public Bilet FindOne(int id)
@@ -25,11 +27,16 @@ public class BiletDBRepository : IBiletRepository
 
     public Bilet Create(Bilet entity)
     {
-        //log.InfoFormat("Entering findOne with value {0}", id);
+        logger.InfoFormat("Entering create with value {0}", entity);
+        logger.InfoFormat("Getting a connection with db");
         IDbConnection con = dbUtils.GetConnection();
 
         using (var comm = con.CreateCommand())
         {
+            logger.InfoFormat("Prepare Statement: insert into bilete " +
+                              "(id_meci, nume_client, nr_locuri) values " +
+                              "({0},{1},{2})", entity.Meci.id,
+                entity.NumeClient, entity.NrLocuri);
             comm.CommandText = "insert into bilete (id_meci, nume_client, nr_locuri)" +
                                " values (@id_meci,@nume_client,@nr_locuri)";
 
@@ -53,10 +60,8 @@ public class BiletDBRepository : IBiletRepository
             {
                 entity = null!;
             }
-
-            return entity;
         }
-        //log.InfoFormat("Exiting findOne with value {0}", null);
+        logger.InfoFormat("Exiting create with value {0}", entity);
         return entity;
     }
 
@@ -73,26 +78,26 @@ public class BiletDBRepository : IBiletRepository
     public int Size()
     {
         
-        //log.InfoFormat("Entering findOne with value {0}", id);
+        logger.InfoFormat("Entering Size");
+        logger.InfoFormat("Getting a connection with db");
         IDbConnection con = dbUtils.GetConnection();
 
         using (var comm = con.CreateCommand())
         {
+            logger.InfoFormat("Prepare Statement: SELECT COUNT(*) AS numar_bilete FROM bilete");
             comm.CommandText = "SELECT COUNT(*) AS numar_bilete FROM bilete";
 
             using (var dataR = comm.ExecuteReader())
             {
                 while (dataR.Read())
                 {
-                    int nr_nilete = dataR.GetInt32(0);
-                    //log.InfoFormat("Exiting findOne with value {0}", task);
-                    return nr_nilete;
+                    int nr_bilete = dataR.GetInt32(0);
+                    logger.InfoFormat("Exiting Size with value {0}", nr_bilete);
+                    return nr_bilete;
                 }
             }
-
-            return 0;
         }
-        //log.InfoFormat("Exiting findOne with value {0}", null);
+        logger.InfoFormat("Exiting Size with wrong value {0}", 0);
         return 0;
     }
 }

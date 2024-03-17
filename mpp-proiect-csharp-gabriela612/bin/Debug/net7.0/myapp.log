@@ -1,0 +1,26 @@
+2024-03-17 18:08:12,462 [1] INFO mpp_proiect_csharp_gabriela612.Clasa - Hello logging world!
+2024-03-17 20:10:53,772 [1] INFO mod1.repository.AngajatDBRepository - Initializing AngajatDBRepository with DBUtils: Utils.DBUtils 
+2024-03-17 20:10:53,790 [1] INFO mod1.repository.AngajatDBRepository - Entering findByUsername with value ionescu_ion
+2024-03-17 20:10:53,790 [1] INFO mod1.repository.AngajatDBRepository - Getting a connection with db
+2024-03-17 20:10:53,862 [1] INFO mod1.repository.AngajatDBRepository - Prepare Statement: select * from angajati where username=ionescu_ion
+2024-03-17 20:10:53,883 [1] INFO mod1.repository.AngajatDBRepository - Angajat gasit : Entity{id=1} 
+2024-03-17 20:10:53,888 [1] INFO mod1.repository.MeciDBRepository - Initializing MeciDBRepository with DBUtils: Utils.DBUtils 
+2024-03-17 20:10:53,889 [1] INFO mod1.repository.MeciDBRepository - Entering findOne with value 1
+2024-03-17 20:10:53,889 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-17 20:10:53,891 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT * FROM meciuri WHERE id=1
+2024-03-17 20:10:53,898 [1] INFO mod1.repository.MeciDBRepository - Exiting findOne with value Entity{id=1}
+2024-03-17 20:10:53,900 [1] INFO mod1.repository.MeciDBRepository - Entering findAll
+2024-03-17 20:10:53,901 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-17 20:10:53,902 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT * FROM meciuri
+2024-03-17 20:10:53,903 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=1}
+2024-03-17 20:10:53,904 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=2}
+2024-03-17 20:10:53,906 [1] INFO mod1.repository.MeciDBRepository - Exiting findAll with value System.Collections.Generic.HashSet`1[mod1.domain.Meci]
+2024-03-17 20:10:53,907 [1] INFO mod1.repository.BiletDBRepository - Initializing BiletDBRepository with DBUtils: Utils.DBUtils 
+2024-03-17 20:10:53,909 [1] INFO mod1.repository.BiletDBRepository - Entering create with value Entity{id=0}
+2024-03-17 20:10:53,909 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
+2024-03-17 20:10:53,912 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: insert into bilete (id_meci, nume_client, nr_locuri) values (1,Mihai Eminescu,2)
+2024-03-17 20:10:53,952 [1] INFO mod1.repository.BiletDBRepository - Exiting create with value 
+2024-03-17 20:10:53,953 [1] INFO mod1.repository.BiletDBRepository - Entering Size
+2024-03-17 20:10:53,953 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
+2024-03-17 20:10:53,953 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT COUNT(*) AS numar_bilete FROM bilete
+2024-03-17 20:10:53,955 [1] INFO mod1.repository.BiletDBRepository - Exiting Size with value 5

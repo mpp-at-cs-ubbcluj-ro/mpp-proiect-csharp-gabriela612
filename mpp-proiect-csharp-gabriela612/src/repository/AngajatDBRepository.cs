@@ -7,10 +7,12 @@ namespace mod1.repository;
 public class AngajatDBRepository : IAngajatRepository
 {
     private DBUtils dbUtils;
+    public static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     public AngajatDBRepository(Dictionary<string, string> props)
     {
         dbUtils = new DBUtils(props);
+        logger.InfoFormat("Initializing AngajatDBRepository with DBUtils: {0} ", dbUtils);
     }
 
     public Angajat FindOne(int id)
@@ -45,11 +47,13 @@ public class AngajatDBRepository : IAngajatRepository
 
     public Angajat findByUsername(string username)
     {
-        //log.InfoFormat("Entering findOne with value {0}", id);
+        logger.InfoFormat("Entering findByUsername with value {0}", username);
+        logger.InfoFormat("Getting a connection with db");
         IDbConnection con = dbUtils.GetConnection();
 
         using (var comm = con.CreateCommand())
         {
+            logger.InfoFormat("Prepare Statement: select * from angajati where username={0}", username);
             comm.CommandText = "select * from angajati where username=@username";
             IDbDataParameter paramId = comm.CreateParameter();
             paramId.ParameterName = "@username";
@@ -64,12 +68,12 @@ public class AngajatDBRepository : IAngajatRepository
                     string parola = dataR.GetString(2);
                     Angajat angajat = new Angajat(parola, username);
                     angajat.id = id;
-                    //log.InfoFormat("Exiting findOne with value {0}", task);
+                    logger.InfoFormat("Angajat gasit : {0} ", angajat);
                     return angajat;
                 }
             }
         }
-        //log.InfoFormat("Exiting findOne with value {0}", null);
+        logger.InfoFormat("Exiting findOne with value {0}", null);
         return null;
     }
 }
