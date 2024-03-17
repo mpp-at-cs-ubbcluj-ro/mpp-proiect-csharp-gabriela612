@@ -9,4 +9,5 @@ public interface Repository<TId, E> where E : Entity<TId>
     E Create(E entity);
     E Delete(TId id);
     E Update(E entity);
+    int Size();
 }

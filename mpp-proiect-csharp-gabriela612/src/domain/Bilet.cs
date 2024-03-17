@@ -1,6 +1,6 @@
 namespace mod1.domain;
 
-public class Bilet
+public class Bilet : Entity<int>
 {
     private Meci meci;
     private string numeClient;
@@ -12,5 +12,10 @@ public class Bilet
         this.numeClient = numeClient;
         this.nrLocuri = nrLocuri;
     }
-    
+
+    public Meci Meci => meci;
+
+    public string NumeClient => numeClient;
+
+    public int NrLocuri => nrLocuri;
 }

@@ -1,6 +1,6 @@
 namespace mod1.domain;
 
-public class Meci : Entity<long>
+public class Meci : Entity<int>
 {
     private string nume;
     private double pret;

@@ -1,6 +1,6 @@
 namespace mod1.domain;
 
-public class Angajat : Entity<long>
+public class Angajat : Entity<int>
 {
     private string parola;
     private string username;
@@ -21,7 +21,7 @@ public class Angajat : Entity<long>
         if (ReferenceEquals(null, obj)) return false;
         if (ReferenceEquals(this, obj)) return true;
         if (obj.GetType() != this.GetType()) return false;
-        if ((Entity<long>)obj != (Entity<long>)this) return false;
+        if ((Entity<int>)obj != (Entity<int>)this) return false;
         return Equals((Angajat)obj);
     }
 
