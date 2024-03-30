@@ -24,3 +24,28 @@
 2024-03-17 20:10:53,953 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
 2024-03-17 20:10:53,953 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT COUNT(*) AS numar_bilete FROM bilete
 2024-03-17 20:10:53,955 [1] INFO mod1.repository.BiletDBRepository - Exiting Size with value 5
+2024-03-18 19:01:34,622 [1] INFO mod1.repository.AngajatDBRepository - Initializing AngajatDBRepository with DBUtils: Utils.DBUtils 
+2024-03-18 19:01:34,644 [1] INFO mod1.repository.AngajatDBRepository - Entering findByUsername with value ionescu_ion
+2024-03-18 19:01:34,645 [1] INFO mod1.repository.AngajatDBRepository - Getting a connection with db
+2024-03-18 19:01:34,772 [1] INFO mod1.repository.AngajatDBRepository - Prepare Statement: select * from angajati where username=ionescu_ion
+2024-03-18 19:01:34,803 [1] INFO mod1.repository.AngajatDBRepository - Angajat gasit : Entity{id=1} 
+2024-03-18 19:01:34,808 [1] INFO mod1.repository.MeciDBRepository - Initializing MeciDBRepository with DBUtils: Utils.DBUtils 
+2024-03-18 19:01:34,809 [1] INFO mod1.repository.MeciDBRepository - Entering findOne with value 1
+2024-03-18 19:01:34,810 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-18 19:01:34,813 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT * FROM meciuri WHERE id=1
+2024-03-18 19:01:34,819 [1] INFO mod1.repository.MeciDBRepository - Exiting findOne with value Entity{id=1}
+2024-03-18 19:01:34,821 [1] INFO mod1.repository.MeciDBRepository - Entering findAll
+2024-03-18 19:01:34,822 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-18 19:01:34,822 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT * FROM meciuri
+2024-03-18 19:01:34,823 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=1}
+2024-03-18 19:01:34,824 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=2}
+2024-03-18 19:01:34,826 [1] INFO mod1.repository.MeciDBRepository - Exiting findAll with value System.Collections.Generic.HashSet`1[mod1.domain.Meci]
+2024-03-18 19:01:34,827 [1] INFO mod1.repository.BiletDBRepository - Initializing BiletDBRepository with DBUtils: Utils.DBUtils 
+2024-03-18 19:01:34,828 [1] INFO mod1.repository.BiletDBRepository - Entering create with value Entity{id=0}
+2024-03-18 19:01:34,828 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
+2024-03-18 19:01:34,831 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: insert into bilete (id_meci, nume_client, nr_locuri) values (1,Mihai Eminescu,2)
+2024-03-18 19:01:34,858 [1] INFO mod1.repository.BiletDBRepository - Exiting create with value 
+2024-03-18 19:01:34,859 [1] INFO mod1.repository.BiletDBRepository - Entering Size
+2024-03-18 19:01:34,860 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
+2024-03-18 19:01:34,860 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT COUNT(*) AS numar_bilete FROM bilete
+2024-03-18 19:01:34,862 [1] INFO mod1.repository.BiletDBRepository - Exiting Size with value 6
