@@ -25,7 +25,7 @@ public class BiletDBRepository : IBiletRepository
         throw new NotImplementedException();
     }
 
-    public Bilet Create(Bilet entity)
+    public Bilet Save(Bilet entity)
     {
         logger.InfoFormat("Entering create with value {0}", entity);
         logger.InfoFormat("Getting a connection with db");
@@ -56,9 +56,9 @@ public class BiletDBRepository : IBiletRepository
             comm.Parameters.Add(paramId3);
 
             int rowsAff = comm.ExecuteNonQuery();
-            if (rowsAff != 0)
+            if (rowsAff == 0)
             {
-                entity = null!;
+                throw new Exception("Adaugarea nu s-a putut efectua in baza de date");
             }
         }
         logger.InfoFormat("Exiting create with value {0}", entity);
@@ -99,5 +99,40 @@ public class BiletDBRepository : IBiletRepository
         }
         logger.InfoFormat("Exiting Size with wrong value {0}", 0);
         return 0;
+    }
+
+    public int NrLocuriOcupateMeci(int idMeci)
+    {
+        logger.InfoFormat("Entering NrLocuriOcupateMeci");
+        logger.InfoFormat("Getting a connection with db");
+        IDbConnection con = dbUtils.GetConnection();
+        int numarBilete = -1;
+        
+        logger.InfoFormat("Prepare Statement: SELECT SUM(nr_locuri) AS numar_bilete FROM bilete WHERE id_meci={0}", idMeci);
+        
+        using (var comm = con.CreateCommand())
+        {
+            logger.InfoFormat("Prepare Statement: SELECT COUNT(*) AS numar_bilete FROM bilete");
+            comm.CommandText = "SELECT SUM(nr_locuri) AS numar_bilete FROM bilete WHERE id_meci=@id_meci";
+            
+            IDbDataParameter paramId1 = comm.CreateParameter();
+            paramId1.ParameterName = "@id_meci";
+            paramId1.Value = idMeci;
+            comm.Parameters.Add(paramId1);
+
+            using (var dataR = comm.ExecuteReader())
+            {
+                while (dataR.Read())
+                {
+                    numarBilete = dataR.GetInt32(0);
+                    logger.InfoFormat("Exiting NrLocuriOcupateMeci with value {0}", numarBilete);
+                    return numarBilete;
+                }
+                logger.InfoFormat("Exiting NrLocuriOcupateMeci with value {0}", 0);
+                return 0;
+            }
+        }
+
+        return numarBilete;
     }
 }

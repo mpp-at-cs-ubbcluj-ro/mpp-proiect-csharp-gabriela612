@@ -3,6 +3,7 @@
 using System.Configuration;
 using mod1.domain;
 using mod1.repository;
+using mpp_proiect_csharp_gabriela612.service;
 
 
 static string GetConnectionStringByName(string name)
@@ -25,14 +26,16 @@ Dictionary<String, string> props = new Dictionary<String, String>();
 props.Add("ConnectionString", GetConnectionStringByName("baschetDB"));
 
 IAngajatRepository angajatRepository = new AngajatDBRepository(props);
-Angajat angajat = angajatRepository.findByUsername("ionescu_ion");
 IMeciRepository meciRepository = new MeciDBRepository(props);
-Meci meci = meciRepository.FindOne(1);
-meciRepository.FindAll();
 IBiletRepository biletRepository = new BiletDBRepository(props);
-biletRepository.Create(new Bilet(meci, "Mihai Eminescu", 2));
-biletRepository.Size();
 
+Service service = new Service(angajatRepository, meciRepository, biletRepository);
+int idA = service.Login("test", "test");
+Console.WriteLine(((HashSet<Meci>)service.GetMeciuri()).Count);
+Console.WriteLine(((HashSet<Meci>)service.GetMeciuriLibere()).Count);
+Meci meci = new Meci("", 0, 3000, new DateOnly());
+meci.id = 1;
+Console.WriteLine(service.CumparaBilet(meci, "ana", 2));
 
 
 

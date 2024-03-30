@@ -25,7 +25,7 @@ public class AngajatDBRepository : IAngajatRepository
         throw new NotImplementedException();
     }
 
-    public Angajat Create(Angajat entity)
+    public Angajat Save(Angajat entity)
     {
         throw new NotImplementedException();
     }
@@ -74,6 +74,6 @@ public class AngajatDBRepository : IAngajatRepository
             }
         }
         logger.InfoFormat("Exiting findOne with value {0}", null);
-        return null;
+        throw new Exception("Angajatul nu a fost gasit");
     }
 }

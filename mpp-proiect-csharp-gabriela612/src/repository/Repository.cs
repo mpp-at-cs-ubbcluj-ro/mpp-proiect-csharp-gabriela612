@@ -6,7 +6,7 @@ public interface Repository<TId, E> where E : Entity<TId>
 {
     E FindOne(TId id);
     IEnumerable<E> FindAll();
-    E Create(E entity);
+    E Save(E entity);
     E Delete(TId id);
     E Update(E entity);
     int Size();

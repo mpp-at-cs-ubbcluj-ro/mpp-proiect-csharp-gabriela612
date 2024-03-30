@@ -50,10 +50,10 @@ public class MeciDBRepository : IMeciRepository
             }
         }
         logger.InfoFormat("Exiting findOne with wrong value {0}", meci);
-        return meci;
+        throw new Exception("Meciul nu a fost gasit");
     }
 
-    public Meci Create(Meci entity)
+    public Meci Save(Meci entity)
     {
         throw new NotImplementedException();
     }
@@ -104,5 +104,55 @@ public class MeciDBRepository : IMeciRepository
         }
         logger.InfoFormat("Exiting findAll with value {0}", meciuri);
         return meciuri;
+    }
+
+    public IEnumerable<Meci> FindMeciuriDisponibile()
+    {
+        logger.InfoFormat("Entering FindMeciuriDisponibile");
+        logger.InfoFormat("Getting a connection with db");
+        IDbConnection con = dbUtils.GetConnection();
+        
+        logger.InfoFormat("Prepare Statement: SELECT m.id, m.nume, m.pret_bilet, m.capacitate, m.data\n" +
+                          "FROM meciuri m\n" +
+                          "         LEFT JOIN (\n" +
+                          "    SELECT id_meci, SUM(nr_locuri) AS total_locuri\n" +
+                          "    FROM bilete\n" +
+                          "    GROUP BY id_meci\n" +
+                          ") b ON m.id = b.id_meci\n" +
+                          "WHERE total_locuri < m.capacitate OR total_locuri IS NULL\n" +
+                          "ORDER BY CASE WHEN total_locuri IS NULL THEN 0 ELSE 1 END;");
+        
+        HashSet<Meci> meciuri = new HashSet<Meci>();
+        
+        using (var comm = con.CreateCommand())
+        {
+            comm.CommandText = "SELECT m.id, m.nume, m.pret_bilet, m.capacitate, m.data " +
+                               "FROM meciuri m " +
+                               "LEFT JOIN ( " +
+                               "SELECT id_meci, SUM(nr_locuri) AS total_locuri " +
+                               "FROM bilete " +
+                               "GROUP BY id_meci ) b ON m.id = b.id_meci " +
+                               "WHERE total_locuri < m.capacitate OR total_locuri IS NULL " +
+                               "ORDER BY CASE WHEN total_locuri IS NULL THEN 0 ELSE 1 END;";
+
+            using (var dataR = comm.ExecuteReader())
+            {
+                while (dataR.Read())
+                {
+                    int id = dataR.GetInt32(0);
+                    string nume = dataR.GetString(1);
+                    double pretBilet = dataR.GetDouble(2);
+                    int capacitate = dataR.GetInt32(3);
+                    DateOnly data = DateUtils.FromString(dataR.GetString(4));
+                    Meci meci = new Meci(nume, pretBilet, capacitate, data);
+                    meci.id = id;
+                    logger.InfoFormat("Meci gasit : {0}", meci);
+                    meciuri.Add(meci);
+                }
+            }
+        }
+        logger.InfoFormat("Exiting findAll with value {0}", meciuri);
+        return meciuri;
+        
     }
 }

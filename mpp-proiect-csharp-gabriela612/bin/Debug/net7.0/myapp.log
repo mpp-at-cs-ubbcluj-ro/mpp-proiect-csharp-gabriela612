@@ -49,3 +49,206 @@
 2024-03-18 19:01:34,860 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
 2024-03-18 19:01:34,860 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT COUNT(*) AS numar_bilete FROM bilete
 2024-03-18 19:01:34,862 [1] INFO mod1.repository.BiletDBRepository - Exiting Size with value 6
+2024-03-30 12:09:48,316 [1] INFO mod1.repository.AngajatDBRepository - Initializing AngajatDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:09:48,336 [1] INFO mod1.repository.MeciDBRepository - Initializing MeciDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:09:48,337 [1] INFO mod1.repository.BiletDBRepository - Initializing BiletDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:09:48,339 [1] INFO mod1.repository.AngajatDBRepository - Entering findByUsername with value test
+2024-03-30 12:09:48,340 [1] INFO mod1.repository.AngajatDBRepository - Getting a connection with db
+2024-03-30 12:09:48,517 [1] INFO mod1.repository.AngajatDBRepository - Prepare Statement: select * from angajati where username=test
+2024-03-30 12:09:48,559 [1] INFO mod1.repository.AngajatDBRepository - Angajat gasit : Entity{id=3} 
+2024-03-30 12:09:48,570 [1] INFO mod1.repository.MeciDBRepository - Entering findAll
+2024-03-30 12:09:48,571 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-30 12:09:48,574 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT * FROM meciuri
+2024-03-30 12:09:48,582 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=1}
+2024-03-30 12:09:48,583 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=2}
+2024-03-30 12:09:48,586 [1] INFO mod1.repository.MeciDBRepository - Exiting findAll with value System.Collections.Generic.HashSet`1[mod1.domain.Meci]
+2024-03-30 12:09:48,597 [1] INFO mod1.repository.MeciDBRepository - Entering FindMeciuriDisponibile
+2024-03-30 12:09:48,597 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-30 12:09:48,598 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT m.id, m.nume, m.pret_bilet, m.capacitate, m.data
+FROM meciuri m
+         LEFT JOIN (
+    SELECT id_meci, SUM(nr_locuri) AS total_locuri
+    FROM bilete
+    GROUP BY id_meci
+) b ON m.id = b.id_meci
+WHERE total_locuri < m.capacitate OR total_locuri IS NULL
+ORDER BY CASE WHEN total_locuri IS NULL THEN 0 ELSE 1 END;
+2024-03-30 12:11:10,653 [1] INFO mod1.repository.AngajatDBRepository - Initializing AngajatDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:11:10,681 [1] INFO mod1.repository.MeciDBRepository - Initializing MeciDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:11:10,683 [1] INFO mod1.repository.BiletDBRepository - Initializing BiletDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:11:10,686 [1] INFO mod1.repository.AngajatDBRepository - Entering findByUsername with value test
+2024-03-30 12:11:10,687 [1] INFO mod1.repository.AngajatDBRepository - Getting a connection with db
+2024-03-30 12:11:10,772 [1] INFO mod1.repository.AngajatDBRepository - Prepare Statement: select * from angajati where username=test
+2024-03-30 12:11:10,825 [1] INFO mod1.repository.AngajatDBRepository - Angajat gasit : Entity{id=3} 
+2024-03-30 12:11:10,832 [1] INFO mod1.repository.MeciDBRepository - Entering findAll
+2024-03-30 12:11:10,832 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-30 12:11:10,835 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT * FROM meciuri
+2024-03-30 12:11:10,841 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=1}
+2024-03-30 12:11:10,842 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=2}
+2024-03-30 12:11:10,844 [1] INFO mod1.repository.MeciDBRepository - Exiting findAll with value System.Collections.Generic.HashSet`1[mod1.domain.Meci]
+2024-03-30 12:11:10,845 [1] INFO mod1.repository.MeciDBRepository - Entering FindMeciuriDisponibile
+2024-03-30 12:11:10,846 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-30 12:11:10,846 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT m.id, m.nume, m.pret_bilet, m.capacitate, m.data
+FROM meciuri m
+         LEFT JOIN (
+    SELECT id_meci, SUM(nr_locuri) AS total_locuri
+    FROM bilete
+    GROUP BY id_meci
+) b ON m.id = b.id_meci
+WHERE total_locuri < m.capacitate OR total_locuri IS NULL
+ORDER BY CASE WHEN total_locuri IS NULL THEN 0 ELSE 1 END;
+2024-03-30 12:12:07,238 [1] INFO mod1.repository.AngajatDBRepository - Initializing AngajatDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:12:07,263 [1] INFO mod1.repository.MeciDBRepository - Initializing MeciDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:12:07,278 [1] INFO mod1.repository.BiletDBRepository - Initializing BiletDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:12:07,284 [1] INFO mod1.repository.AngajatDBRepository - Entering findByUsername with value test
+2024-03-30 12:12:07,286 [1] INFO mod1.repository.AngajatDBRepository - Getting a connection with db
+2024-03-30 12:12:07,379 [1] INFO mod1.repository.AngajatDBRepository - Prepare Statement: select * from angajati where username=test
+2024-03-30 12:12:07,398 [1] INFO mod1.repository.AngajatDBRepository - Angajat gasit : Entity{id=3} 
+2024-03-30 12:12:07,404 [1] INFO mod1.repository.MeciDBRepository - Entering findAll
+2024-03-30 12:12:07,404 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-30 12:12:07,406 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT * FROM meciuri
+2024-03-30 12:12:07,409 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=1}
+2024-03-30 12:12:07,410 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=2}
+2024-03-30 12:12:07,412 [1] INFO mod1.repository.MeciDBRepository - Exiting findAll with value System.Collections.Generic.HashSet`1[mod1.domain.Meci]
+2024-03-30 12:12:07,413 [1] INFO mod1.repository.MeciDBRepository - Entering FindMeciuriDisponibile
+2024-03-30 12:12:07,413 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-30 12:12:07,414 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT m.id, m.nume, m.pret_bilet, m.capacitate, m.data
+FROM meciuri m
+         LEFT JOIN (
+    SELECT id_meci, SUM(nr_locuri) AS total_locuri
+    FROM bilete
+    GROUP BY id_meci
+) b ON m.id = b.id_meci
+WHERE total_locuri < m.capacitate OR total_locuri IS NULL
+ORDER BY CASE WHEN total_locuri IS NULL THEN 0 ELSE 1 END;
+2024-03-30 12:12:07,421 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=1}
+2024-03-30 12:12:07,422 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=2}
+2024-03-30 12:12:07,423 [1] INFO mod1.repository.MeciDBRepository - Exiting findAll with value System.Collections.Generic.HashSet`1[mod1.domain.Meci]
+2024-03-30 12:12:07,425 [1] INFO mod1.repository.BiletDBRepository - Entering NrLocuriOcupateMeci
+2024-03-30 12:12:07,425 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
+2024-03-30 12:12:07,427 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT SUM(nr_locuri) AS numar_bilete FROM bilete WHERE id_meci=1
+2024-03-30 12:12:07,428 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT COUNT(*) AS numar_bilete FROM bilete
+2024-03-30 12:12:07,430 [1] INFO mod1.repository.BiletDBRepository - Exiting NrLocuriOcupateMeci with value 17
+2024-03-30 12:12:07,430 [1] INFO mod1.repository.BiletDBRepository - Entering NrLocuriOcupateMeci
+2024-03-30 12:12:07,431 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
+2024-03-30 12:12:07,432 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT SUM(nr_locuri) AS numar_bilete FROM bilete WHERE id_meci=1
+2024-03-30 12:12:07,433 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT COUNT(*) AS numar_bilete FROM bilete
+2024-03-30 12:12:07,434 [1] INFO mod1.repository.BiletDBRepository - Exiting NrLocuriOcupateMeci with value 17
+2024-03-30 12:13:58,297 [1] INFO mod1.repository.AngajatDBRepository - Initializing AngajatDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:13:58,314 [1] INFO mod1.repository.MeciDBRepository - Initializing MeciDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:13:58,315 [1] INFO mod1.repository.BiletDBRepository - Initializing BiletDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:13:58,316 [1] INFO mod1.repository.AngajatDBRepository - Entering findByUsername with value test
+2024-03-30 12:13:58,317 [1] INFO mod1.repository.AngajatDBRepository - Getting a connection with db
+2024-03-30 12:13:58,381 [1] INFO mod1.repository.AngajatDBRepository - Prepare Statement: select * from angajati where username=test
+2024-03-30 12:13:58,402 [1] INFO mod1.repository.AngajatDBRepository - Angajat gasit : Entity{id=3} 
+2024-03-30 12:13:58,407 [1] INFO mod1.repository.MeciDBRepository - Entering findAll
+2024-03-30 12:13:58,407 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-30 12:13:58,409 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT * FROM meciuri
+2024-03-30 12:13:58,413 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=1}
+2024-03-30 12:13:58,414 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=2}
+2024-03-30 12:13:58,417 [1] INFO mod1.repository.MeciDBRepository - Exiting findAll with value System.Collections.Generic.HashSet`1[mod1.domain.Meci]
+2024-03-30 12:13:58,419 [1] INFO mod1.repository.MeciDBRepository - Entering FindMeciuriDisponibile
+2024-03-30 12:13:58,419 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-30 12:13:58,419 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT m.id, m.nume, m.pret_bilet, m.capacitate, m.data
+FROM meciuri m
+         LEFT JOIN (
+    SELECT id_meci, SUM(nr_locuri) AS total_locuri
+    FROM bilete
+    GROUP BY id_meci
+) b ON m.id = b.id_meci
+WHERE total_locuri < m.capacitate OR total_locuri IS NULL
+ORDER BY CASE WHEN total_locuri IS NULL THEN 0 ELSE 1 END;
+2024-03-30 12:13:58,423 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=1}
+2024-03-30 12:13:58,424 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=2}
+2024-03-30 12:13:58,425 [1] INFO mod1.repository.MeciDBRepository - Exiting findAll with value System.Collections.Generic.HashSet`1[mod1.domain.Meci]
+2024-03-30 12:13:58,427 [1] INFO mod1.repository.BiletDBRepository - Entering NrLocuriOcupateMeci
+2024-03-30 12:13:58,428 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
+2024-03-30 12:13:58,431 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT SUM(nr_locuri) AS numar_bilete FROM bilete WHERE id_meci=1
+2024-03-30 12:13:58,432 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT COUNT(*) AS numar_bilete FROM bilete
+2024-03-30 12:13:58,435 [1] INFO mod1.repository.BiletDBRepository - Exiting NrLocuriOcupateMeci with value 17
+2024-03-30 12:13:58,436 [1] INFO mod1.repository.BiletDBRepository - Entering NrLocuriOcupateMeci
+2024-03-30 12:13:58,436 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
+2024-03-30 12:13:58,436 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT SUM(nr_locuri) AS numar_bilete FROM bilete WHERE id_meci=1
+2024-03-30 12:13:58,436 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT COUNT(*) AS numar_bilete FROM bilete
+2024-03-30 12:13:58,437 [1] INFO mod1.repository.BiletDBRepository - Exiting NrLocuriOcupateMeci with value 17
+2024-03-30 12:14:19,143 [1] INFO mod1.repository.AngajatDBRepository - Initializing AngajatDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:14:19,161 [1] INFO mod1.repository.MeciDBRepository - Initializing MeciDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:14:19,162 [1] INFO mod1.repository.BiletDBRepository - Initializing BiletDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:14:19,163 [1] INFO mod1.repository.AngajatDBRepository - Entering findByUsername with value test
+2024-03-30 12:14:19,164 [1] INFO mod1.repository.AngajatDBRepository - Getting a connection with db
+2024-03-30 12:14:19,225 [1] INFO mod1.repository.AngajatDBRepository - Prepare Statement: select * from angajati where username=test
+2024-03-30 12:14:19,246 [1] INFO mod1.repository.AngajatDBRepository - Angajat gasit : Entity{id=3} 
+2024-03-30 12:14:19,251 [1] INFO mod1.repository.MeciDBRepository - Entering findAll
+2024-03-30 12:14:19,251 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-30 12:14:19,253 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT * FROM meciuri
+2024-03-30 12:14:19,256 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=1}
+2024-03-30 12:14:19,257 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=2}
+2024-03-30 12:14:19,260 [1] INFO mod1.repository.MeciDBRepository - Exiting findAll with value System.Collections.Generic.HashSet`1[mod1.domain.Meci]
+2024-03-30 12:14:19,262 [1] INFO mod1.repository.MeciDBRepository - Entering FindMeciuriDisponibile
+2024-03-30 12:14:19,262 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-30 12:14:19,262 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT m.id, m.nume, m.pret_bilet, m.capacitate, m.data
+FROM meciuri m
+         LEFT JOIN (
+    SELECT id_meci, SUM(nr_locuri) AS total_locuri
+    FROM bilete
+    GROUP BY id_meci
+) b ON m.id = b.id_meci
+WHERE total_locuri < m.capacitate OR total_locuri IS NULL
+ORDER BY CASE WHEN total_locuri IS NULL THEN 0 ELSE 1 END;
+2024-03-30 12:14:19,267 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=1}
+2024-03-30 12:14:19,268 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=2}
+2024-03-30 12:14:19,268 [1] INFO mod1.repository.MeciDBRepository - Exiting findAll with value System.Collections.Generic.HashSet`1[mod1.domain.Meci]
+2024-03-30 12:14:19,270 [1] INFO mod1.repository.BiletDBRepository - Entering NrLocuriOcupateMeci
+2024-03-30 12:14:19,270 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
+2024-03-30 12:14:19,272 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT SUM(nr_locuri) AS numar_bilete FROM bilete WHERE id_meci=1
+2024-03-30 12:14:19,272 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT COUNT(*) AS numar_bilete FROM bilete
+2024-03-30 12:14:19,274 [1] INFO mod1.repository.BiletDBRepository - Exiting NrLocuriOcupateMeci with value 17
+2024-03-30 12:14:19,276 [1] INFO mod1.repository.BiletDBRepository - Entering NrLocuriOcupateMeci
+2024-03-30 12:14:19,277 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
+2024-03-30 12:14:19,277 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT SUM(nr_locuri) AS numar_bilete FROM bilete WHERE id_meci=1
+2024-03-30 12:14:19,278 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT COUNT(*) AS numar_bilete FROM bilete
+2024-03-30 12:14:19,280 [1] INFO mod1.repository.BiletDBRepository - Exiting NrLocuriOcupateMeci with value 17
+2024-03-30 12:14:19,282 [1] INFO mod1.repository.BiletDBRepository - Entering create with value Entity{id=0}
+2024-03-30 12:14:19,282 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
+2024-03-30 12:14:19,283 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: insert into bilete (id_meci, nume_client, nr_locuri) values (1,ana,2)
+2024-03-30 12:15:43,066 [1] INFO mod1.repository.AngajatDBRepository - Initializing AngajatDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:15:43,085 [1] INFO mod1.repository.MeciDBRepository - Initializing MeciDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:15:43,086 [1] INFO mod1.repository.BiletDBRepository - Initializing BiletDBRepository with DBUtils: Utils.DBUtils 
+2024-03-30 12:15:43,093 [1] INFO mod1.repository.AngajatDBRepository - Entering findByUsername with value test
+2024-03-30 12:15:43,093 [1] INFO mod1.repository.AngajatDBRepository - Getting a connection with db
+2024-03-30 12:15:43,178 [1] INFO mod1.repository.AngajatDBRepository - Prepare Statement: select * from angajati where username=test
+2024-03-30 12:15:43,211 [1] INFO mod1.repository.AngajatDBRepository - Angajat gasit : Entity{id=3} 
+2024-03-30 12:15:43,220 [1] INFO mod1.repository.MeciDBRepository - Entering findAll
+2024-03-30 12:15:43,221 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-30 12:15:43,224 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT * FROM meciuri
+2024-03-30 12:15:43,234 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=1}
+2024-03-30 12:15:43,236 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=2}
+2024-03-30 12:15:43,239 [1] INFO mod1.repository.MeciDBRepository - Exiting findAll with value System.Collections.Generic.HashSet`1[mod1.domain.Meci]
+2024-03-30 12:15:43,247 [1] INFO mod1.repository.MeciDBRepository - Entering FindMeciuriDisponibile
+2024-03-30 12:15:43,247 [1] INFO mod1.repository.MeciDBRepository - Getting a connection with db
+2024-03-30 12:15:43,248 [1] INFO mod1.repository.MeciDBRepository - Prepare Statement: SELECT m.id, m.nume, m.pret_bilet, m.capacitate, m.data
+FROM meciuri m
+         LEFT JOIN (
+    SELECT id_meci, SUM(nr_locuri) AS total_locuri
+    FROM bilete
+    GROUP BY id_meci
+) b ON m.id = b.id_meci
+WHERE total_locuri < m.capacitate OR total_locuri IS NULL
+ORDER BY CASE WHEN total_locuri IS NULL THEN 0 ELSE 1 END;
+2024-03-30 12:15:43,255 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=1}
+2024-03-30 12:15:43,256 [1] INFO mod1.repository.MeciDBRepository - Meci gasit : Entity{id=2}
+2024-03-30 12:15:43,257 [1] INFO mod1.repository.MeciDBRepository - Exiting findAll with value System.Collections.Generic.HashSet`1[mod1.domain.Meci]
+2024-03-30 12:15:43,261 [1] INFO mod1.repository.BiletDBRepository - Entering NrLocuriOcupateMeci
+2024-03-30 12:15:43,262 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
+2024-03-30 12:15:43,265 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT SUM(nr_locuri) AS numar_bilete FROM bilete WHERE id_meci=1
+2024-03-30 12:15:43,265 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT COUNT(*) AS numar_bilete FROM bilete
+2024-03-30 12:15:43,271 [1] INFO mod1.repository.BiletDBRepository - Exiting NrLocuriOcupateMeci with value 19
+2024-03-30 12:15:43,272 [1] INFO mod1.repository.BiletDBRepository - Entering NrLocuriOcupateMeci
+2024-03-30 12:15:43,273 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
+2024-03-30 12:15:43,274 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT SUM(nr_locuri) AS numar_bilete FROM bilete WHERE id_meci=1
+2024-03-30 12:15:43,274 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: SELECT COUNT(*) AS numar_bilete FROM bilete
+2024-03-30 12:15:43,276 [1] INFO mod1.repository.BiletDBRepository - Exiting NrLocuriOcupateMeci with value 19
+2024-03-30 12:15:43,279 [1] INFO mod1.repository.BiletDBRepository - Entering create with value Entity{id=0}
+2024-03-30 12:15:43,283 [1] INFO mod1.repository.BiletDBRepository - Getting a connection with db
+2024-03-30 12:15:43,287 [1] INFO mod1.repository.BiletDBRepository - Prepare Statement: insert into bilete (id_meci, nume_client, nr_locuri) values (1,ana,2)
+2024-03-30 12:15:43,347 [1] INFO mod1.repository.BiletDBRepository - Exiting create with value Entity{id=0}

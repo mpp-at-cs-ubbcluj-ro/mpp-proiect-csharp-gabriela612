@@ -4,7 +4,7 @@ namespace mod1.repository;
 
 public interface IBiletRepository : Repository<int, Bilet>
 {
-    Bilet Repository<int, Bilet>.Create(Bilet entity)
+    Bilet Repository<int, Bilet>.Save(Bilet entity)
     {
         throw new NotImplementedException();
     }
@@ -13,4 +13,6 @@ public interface IBiletRepository : Repository<int, Bilet>
     {
         throw new NotImplementedException();
     }
+    
+    int NrLocuriOcupateMeci(int idMeci);
 }

@@ -13,4 +13,6 @@ public interface IMeciRepository : Repository<int, Meci>
     {
         throw new NotImplementedException();
     }
+    
+    IEnumerable<Meci> FindMeciuriDisponibile();
 }
