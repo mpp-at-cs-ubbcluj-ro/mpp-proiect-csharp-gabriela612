@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpp-proiect-csharp-gabriela612", "mpp-proiect-csharp-gabriela612\mpp-proiect-csharp-gabriela612.csproj", "{782B24BB-67D8-413D-92CD-7B87B9B1AF58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{E9D9DBC2-9E61-4A29-8087-2A9518259CA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{782B24BB-67D8-413D-92CD-7B87B9B1AF58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{782B24BB-67D8-413D-92CD-7B87B9B1AF58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{782B24BB-67D8-413D-92CD-7B87B9B1AF58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9D9DBC2-9E61-4A29-8087-2A9518259CA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9D9DBC2-9E61-4A29-8087-2A9518259CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9D9DBC2-9E61-4A29-8087-2A9518259CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9D9DBC2-9E61-4A29-8087-2A9518259CA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
