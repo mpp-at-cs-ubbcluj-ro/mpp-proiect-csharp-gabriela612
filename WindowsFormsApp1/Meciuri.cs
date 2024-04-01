@@ -122,8 +122,15 @@ public partial class Meciuri : Form
         string numeClient = numeClientField.Text;
         int nrL = int.Parse(nrLocuri.ToString());
 
-        Bilet bilet = service.CumparaBilet(meciSelectat, numeClient, nrL);
-        
+        try
+        {
+            Bilet bilet = service.CumparaBilet(meciSelectat, numeClient, nrL);
+            return;
+        }
+        catch (Exception ex)
+        {
+            MyMessageBox.Show(ex.Message);
+        }
         MyMessageBox.Show("Biletul a fost inregistrat in baza de date");
         this.initData();
     }

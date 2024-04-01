@@ -31,11 +31,19 @@ namespace WindowsFormsApp1
             
             String username = usernameField.Text;
             String parola = parolaField.Text;
-            int id_angajat = service.Login(username, parola);
+
+            int id_angajat = -1;
+            try
+            {
+                id_angajat = service.Login(username, parola);
+            }
+            catch (Exception ex)
+            {
+                MyMessageBox.Show(ex.Message);
+            }
 
             if (id_angajat == -1)
             {
-                MyMessageBox.Show("Date incorecte");
                 return;
             }
             
