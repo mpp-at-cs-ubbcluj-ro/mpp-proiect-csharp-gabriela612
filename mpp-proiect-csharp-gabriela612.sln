@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpp-proiect-csharp-gabriela
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{E9D9DBC2-9E61-4A29-8087-2A9518259CA9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{895C427B-D1A8-4670-9C94-E6364CCBAF86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utills", "Utills\Utills.csproj", "{DE47A747-CADC-4AB0-B093-B4F710C4F0BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{E9D9DBC2-9E61-4A29-8087-2A9518259CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9D9DBC2-9E61-4A29-8087-2A9518259CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9D9DBC2-9E61-4A29-8087-2A9518259CA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{895C427B-D1A8-4670-9C94-E6364CCBAF86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{895C427B-D1A8-4670-9C94-E6364CCBAF86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{895C427B-D1A8-4670-9C94-E6364CCBAF86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{895C427B-D1A8-4670-9C94-E6364CCBAF86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE47A747-CADC-4AB0-B093-B4F710C4F0BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE47A747-CADC-4AB0-B093-B4F710C4F0BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE47A747-CADC-4AB0-B093-B4F710C4F0BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE47A747-CADC-4AB0-B093-B4F710C4F0BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

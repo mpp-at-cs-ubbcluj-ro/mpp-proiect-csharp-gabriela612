@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 using mod1.repository;
-using WindowsFormsApp1.domain;
+using Utills.domain;
 using WindowsFormsApp1.repository;
 
 namespace WindowsFormsApp1.service;
@@ -49,12 +49,31 @@ public class Service
         return meci.Capacitate - _biletRepository.NrLocuriOcupateMeci(meci.id);
     }
 
-    public IEnumerable<Meci> GetMeciuri() {
-        return _meciRepository.FindAll();
+    public IEnumerable<MeciL> GetMeciuri()
+    {
+        HashSet<Meci> meciuri = (HashSet<Meci>)_meciRepository.FindAll();
+        HashSet<MeciL> meciLs = new HashSet<MeciL>();
+        foreach (Meci m in meciuri)
+        {
+            MeciL meciL = new MeciL(m.Nume, m.Pret, m.Capacitate, m.Data, this.NrLocuriDisponibileMeci(m));
+            meciL.id = m.id;
+            meciLs.Add(meciL);
+        }
+
+        return meciLs;
     }
 
-    public IEnumerable<Meci> GetMeciuriLibere() {
-        return _meciRepository.FindMeciuriDisponibile();
+    public IEnumerable<MeciL> GetMeciuriLibere() {
+        HashSet<Meci> meciuri = (HashSet<Meci>)_meciRepository.FindMeciuriDisponibile();
+        HashSet<MeciL> meciLs = new HashSet<MeciL>();
+        foreach (Meci m in meciuri)
+        {
+            MeciL meciL = new MeciL(m.Nume, m.Pret, m.Capacitate, m.Data, this.NrLocuriDisponibileMeci(m));
+            meciL.id = m.id;
+            meciLs.Add(meciL);
+        }
+
+        return meciLs;
     }
     
 }

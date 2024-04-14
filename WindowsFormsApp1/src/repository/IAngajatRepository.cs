@@ -1,5 +1,5 @@
 using System;
-using WindowsFormsApp1.domain;
+using Utills.domain;
 
 namespace mod1.repository;
 

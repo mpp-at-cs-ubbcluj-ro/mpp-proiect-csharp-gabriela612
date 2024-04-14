@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using Utils;
-using WindowsFormsApp1.domain;
+using Utills.utils;
+using Utills.domain;
 using WindowsFormsApp1.utils;
 
 namespace WindowsFormsApp1.repository;

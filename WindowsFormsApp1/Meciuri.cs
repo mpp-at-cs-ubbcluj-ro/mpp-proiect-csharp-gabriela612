@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using WindowsFormsApp1.domain;
+using Utills.domain;
 using WindowsFormsApp1.service;
 using WindowsFormsApp1.utils;
 
@@ -13,7 +13,7 @@ public partial class Meciuri : Form
     Service service;
     private int idAngajat;
     private Login login;
-    private HashSet<Meci> meciuriList;
+    private HashSet<MeciL> meciuriList;
     private bool filtru = false;
 
     public void setService(Service service, int idAngajat, Login login) {
@@ -39,7 +39,7 @@ public partial class Meciuri : Form
         if (meciuriTable.Columns[e.ColumnIndex].Name == "nrLocuriDisponibileColumn")
         {
             // Obțineți valoarea entității pentru rândul curent
-            Meci meci = meciuriTable.Rows[e.RowIndex].DataBoundItem as Meci;
+            MeciL meci = meciuriTable.Rows[e.RowIndex].DataBoundItem as MeciL;
 
             // Verificați dacă entitatea este validă
             if (meci != null)
@@ -73,10 +73,10 @@ public partial class Meciuri : Form
     {
         var source = new BindingSource();
         if (!filtru)
-            meciuriList = (HashSet<Meci>)this.service.GetMeciuri();
+            meciuriList = (HashSet<MeciL>)this.service.GetMeciuri();
         else
         {
-            meciuriList = (HashSet<Meci>)this.service.GetMeciuriLibere();
+            meciuriList = (HashSet<MeciL>)this.service.GetMeciuriLibere();
         }
 
         if (filtru)
@@ -118,7 +118,7 @@ public partial class Meciuri : Form
         }
         
         DataGridViewRow selectedRow = meciuriTable.SelectedRows[0];
-        Meci meciSelectat = selectedRow.DataBoundItem as Meci;
+        MeciL meciSelectat = selectedRow.DataBoundItem as MeciL;
         string numeClient = numeClientField.Text;
         int nrL = int.Parse(nrLocuri.ToString());
 

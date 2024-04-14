@@ -21,3 +21,6 @@ C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin
 C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\obj\Debug\WindowsF.A1EEDF9B.Up2Date
 C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Login.resources
 C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Meciuri.resources
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\Utills.dll
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\Utills.pdb
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\Utills.dll.config

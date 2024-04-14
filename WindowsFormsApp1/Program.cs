@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using mod1.repository;
-using WindowsFormsApp1.domain;
+using Utills.domain;
 using WindowsFormsApp1.repository;
 using WindowsFormsApp1.service;
 

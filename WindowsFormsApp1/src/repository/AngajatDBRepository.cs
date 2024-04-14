@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using mod1.repository;
-using WindowsFormsApp1.domain;
-using WindowsFormsApp1.utils;
+using Utills.domain;
+using Utills.utils;
 
 namespace WindowsFormsApp1.repository;
 
