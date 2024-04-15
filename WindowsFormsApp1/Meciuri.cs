@@ -2,36 +2,42 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Utills.domain;
-using WindowsFormsApp1.service;
+using Utills.services;
 using WindowsFormsApp1.utils;
 
 namespace WindowsFormsApp1;
 
 public partial class Meciuri : Form
 {
-    
-    Service service;
-    private int idAngajat;
-    private Login login;
+    private ClientCtrl clientCtrl;
     private HashSet<MeciL> meciuriList;
     private bool filtru = false;
 
-    public void setService(Service service, int idAngajat, Login login) {
-        this.service = service;
-        this.idAngajat = idAngajat;
-        this.login = login;
-    
-        // Inițializați datele și sursa de date
+    public Meciuri(ClientCtrl clientCtrl)
+    {
+        InitializeComponent();
+        this.clientCtrl = clientCtrl;
+        meciuriList = (HashSet<MeciL>)this.clientCtrl.GetMeciuri();
+        
         initData();
     
-        // Asociați evenimentul de formatare a celulelor pentru a afișa numărul de locuri disponibile
         meciuriTable.CellFormatting += meciuriTable_CellFormatting;
-    
-        // Actualizați DataGridView-ul
+        
         Refresh();
+
+        clientCtrl.updateEvent += userUpdate;
     }
 
-
+    public void userUpdate(object sender, UserEventArgs e)
+    {
+        if (e.UserEventType==UserEvent.BiletVandut)
+        {
+            HashSet<MeciL> meciLs = (HashSet<MeciL>)e.Data;
+            Console.WriteLine("[ChatWindow] am primit alte meciuri "+ meciuriList);
+            initData(meciLs);
+        }
+    }
+    
 
     private void meciuriTable_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
     {
@@ -45,7 +51,7 @@ public partial class Meciuri : Form
             if (meci != null)
             {
                 // Calculați numărul de locuri disponibile pentru meci
-                int nr = service.NrLocuriDisponibileMeci(meci);
+                int nr = meci.NrLocuriDisponibile;
 
                 // Setare valoare afișată în funcție de numărul de locuri disponibile
                 if (nr != 0)
@@ -65,6 +71,7 @@ public partial class Meciuri : Form
         meciuriTable.Columns["Capacitate"].Visible = false;
         meciuriTable.Columns["Data"].Visible = false;
         meciuriTable.Columns["Id"].Visible = false;
+        meciuriTable.Columns["NrLocuriDisponibile"].Visible = false;
     }
 
 
@@ -73,11 +80,30 @@ public partial class Meciuri : Form
     {
         var source = new BindingSource();
         if (!filtru)
-            meciuriList = (HashSet<MeciL>)this.service.GetMeciuri();
+            meciuriList = (HashSet<MeciL>)this.clientCtrl.GetMeciuri();
         else
         {
-            meciuriList = (HashSet<MeciL>)this.service.GetMeciuriLibere();
+            meciuriList = (HashSet<MeciL>)this.clientCtrl.GetMeciuriLibere();
         }
+
+        if (filtru)
+            buttonFiltru.Text = "Toate meciurile";
+        else
+        {
+            buttonFiltru.Text = "Doar meciurile la care mai sunt bilete";
+        }
+        
+        source.DataSource = meciuriList;
+        meciuriTable.DataSource = source;
+        Refresh();
+    }
+    
+    public void initData(HashSet<MeciL> meciLs)
+    {
+        var source = new BindingSource();
+
+        filtru = false;
+        meciuriList = meciLs;
 
         if (filtru)
             buttonFiltru.Text = "Toate meciurile";
@@ -124,7 +150,7 @@ public partial class Meciuri : Form
 
         try
         {
-            Bilet bilet = service.CumparaBilet(meciSelectat, numeClient, nrL);
+            Bilet bilet = clientCtrl.Vanzare(meciSelectat, numeClient, nrL);
             return;
         }
         catch (Exception ex)
@@ -143,8 +169,7 @@ public partial class Meciuri : Form
 
     private void LogoutButton_Click(object sender, EventArgs e)
     {
-        this.login.reopen();
-        this.login.Show();
+        clientCtrl.Logout();
         this.Close();
     }
 }

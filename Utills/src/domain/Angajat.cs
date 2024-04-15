@@ -1,5 +1,8 @@
+using System;
+
 namespace Utills.domain;
 
+[Serializable]
 public class Angajat : Entity<int>
 {
     private string parola;
@@ -13,7 +16,7 @@ public class Angajat : Entity<int>
 
     protected bool Equals(Angajat other)
     {
-        return base.Equals(other) || (parola == other.parola && username == other.username);
+        return base.Equals(other) || (parola.Equals(other.parola) && username.Equals(other.username));
     }
 
     public override bool Equals(object? obj)
@@ -23,5 +26,8 @@ public class Angajat : Entity<int>
         if (obj.GetType() != this.GetType()) return false;
         return Equals((Angajat)obj);
     }
-    
+
+    public string Parola => parola;
+
+    public string Username => username;
 }

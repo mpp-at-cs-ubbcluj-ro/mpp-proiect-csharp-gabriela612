@@ -68,6 +68,16 @@
         <Compile Include="src\domain\Entity.cs" />
         <Compile Include="src\domain\Meci.cs" />
         <Compile Include="src\domain\MeciL.cs" />
+        <Compile Include="src\networking\AbsConcurrentServer.cs" />
+        <Compile Include="src\networking\AbstractServer.cs" />
+        <Compile Include="src\networking\ClientWorker.cs" />
+        <Compile Include="src\networking\ConcurrentServer.cs" />
+        <Compile Include="src\networking\Request.cs" />
+        <Compile Include="src\networking\RequestType.cs" />
+        <Compile Include="src\networking\Response.cs" />
+        <Compile Include="src\networking\ResponseType.cs" />
+        <Compile Include="src\networking\ServerProxy.cs" />
+        <Compile Include="src\observer\IObserver.cs" />
         <Compile Include="src\services\IServices.cs" />
         <Compile Include="src\utils\DateUtils.cs" />
         <Compile Include="src\utils\DBUtils.cs" />

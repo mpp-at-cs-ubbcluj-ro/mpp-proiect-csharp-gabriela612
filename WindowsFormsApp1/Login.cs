@@ -7,23 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.service;
+using Utills.services;
 using WindowsFormsApp1.utils;
 
 namespace WindowsFormsApp1
 {
     public partial class Login : Form
     {
+        private ClientCtrl clientCtrl;
         
-        Service service;
-
-        public void setService(Service service) {
-            this.service = service;
-        }
-        
-        public Login()
+        public Login(ClientCtrl clientCtrl)
         {
             InitializeComponent();
+            this.clientCtrl = clientCtrl;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -35,23 +31,25 @@ namespace WindowsFormsApp1
             int id_angajat = -1;
             try
             {
-                id_angajat = service.Login(username, parola);
+                clientCtrl.Login(username, parola);
+                //MessageBox.Show("Login succeded");
+                Meciuri meciuriWindow = new Meciuri(clientCtrl);
+                meciuriWindow.Text = "Chat window for " + username;
+                meciuriWindow.Show();
+                this.Hide();
+                return;
+
             }
             catch (Exception ex)
             {
                 MyMessageBox.Show(ex.Message);
-            }
-
-            if (id_angajat == -1)
-            {
                 return;
             }
-            
-            
-            Meciuri meciuri = new Meciuri();
-            meciuri.setService(service, id_angajat, this);
-            meciuri.Show();
-            this.Hide();
+
+            // if (id_angajat == -1)
+            // {
+            //     MyMessageBox.Show("Angajatul nu a fost gasit");
+            // }
         }
         
         public void reopen()

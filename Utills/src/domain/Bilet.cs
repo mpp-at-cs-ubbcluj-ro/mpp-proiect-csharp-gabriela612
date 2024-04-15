@@ -1,5 +1,8 @@
+using System;
+
 namespace Utills.domain;
 
+[Serializable]
 public class Bilet : Entity<int>
 {
     private Meci meci;

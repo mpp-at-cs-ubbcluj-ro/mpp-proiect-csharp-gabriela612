@@ -2,6 +2,7 @@ using System;
 
 namespace Utills.domain;
 
+[Serializable]
 public class Meci : Entity<int>
 {
     private string nume;

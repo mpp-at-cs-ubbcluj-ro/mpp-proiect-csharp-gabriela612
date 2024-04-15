@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 
 namespace Utills.domain;
 
+[Serializable]
 public class Entity<TId>
 {
     public TId id { get; set; }

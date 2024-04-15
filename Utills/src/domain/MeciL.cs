@@ -2,6 +2,7 @@ using System;
 
 namespace Utills.domain;
 
+[Serializable]
 public class MeciL : Meci
 {
     private int nrLocuriDisponibile;
