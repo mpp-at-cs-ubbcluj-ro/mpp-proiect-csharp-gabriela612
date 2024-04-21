@@ -26,7 +26,7 @@ namespace WindowsFormsApp1
             int port = DEFAULT_SERVER_PORT;
             String ip = DEFAULT_SERVER_IP;
             
-            String portS= ConfigurationManager.AppSettings["port"];
+            String portS= ConfigurationManager.AppSettings["port_server"];
             if (portS == null)
             {
                 Console.WriteLine("Port property not set. Using default value "+DEFAULT_SERVER_PORT);
@@ -41,7 +41,7 @@ namespace WindowsFormsApp1
                     Console.WriteLine("Portul "+port);
                 }
             }
-            String ipS=ConfigurationManager.AppSettings["ip"];
+            String ipS=ConfigurationManager.AppSettings["ip_server"];
            
             if (ipS == null)
             {
