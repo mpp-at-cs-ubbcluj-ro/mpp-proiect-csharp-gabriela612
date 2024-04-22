@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("mpp-proiect-csharp-gabriela612")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a430e0ab44e4ff18ef69fc93b593969519c98c34")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+066c0fc7c68814136502cf3a9d093b3e1d49a9be")]
 [assembly: System.Reflection.AssemblyProductAttribute("mpp-proiect-csharp-gabriela612")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mpp-proiect-csharp-gabriela612")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

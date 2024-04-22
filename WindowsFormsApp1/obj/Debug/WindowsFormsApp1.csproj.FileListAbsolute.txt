@@ -1,5 +1,4 @@
 C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
-C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
 C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
 C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
 C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
@@ -23,3 +22,15 @@ C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\obj
 C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\Utills.dll
 C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\Utills.pdb
 C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\Utills.dll.config
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\System.Buffers.dll
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\System.Memory.dll
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\Google.Protobuf.dll
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\System.Buffers.xml
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\System.Memory.xml
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\Google.Protobuf.pdb
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\Google.Protobuf.xml
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config

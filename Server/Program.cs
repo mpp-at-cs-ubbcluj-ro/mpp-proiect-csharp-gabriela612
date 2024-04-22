@@ -56,15 +56,14 @@ namespace Server
 
             IServices service = new Service(angajatRepository, meciRepository, biletRepository);
 
-            AbstractServer server = new ConcurrentServer(ip, port, service);
-
+            AbstractServer server = new ProtoConcurrentServer(ip, port, service);
             try {
                 server.Start();
             } catch (Exception e) {
                 Console.WriteLine("Error starting the server" + e.Message);
             }finally {
                 try {
-                    server.Stop();
+                    
                 }catch(Exception e){
                     Console.WriteLine("Error stopping the server" + e.Message);
                 }

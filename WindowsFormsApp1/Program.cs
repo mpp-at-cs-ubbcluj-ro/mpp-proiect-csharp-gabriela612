@@ -23,10 +23,10 @@ namespace WindowsFormsApp1
         [STAThread]
         static void Main()
         {
+            Console.WriteLine("Reading properties from app.config ...");
             int port = DEFAULT_SERVER_PORT;
             String ip = DEFAULT_SERVER_IP;
-            
-            String portS= ConfigurationManager.AppSettings["port_server"];
+            String portS= ConfigurationManager.AppSettings["port"];
             if (portS == null)
             {
                 Console.WriteLine("Port property not set. Using default value "+DEFAULT_SERVER_PORT);
@@ -41,7 +41,7 @@ namespace WindowsFormsApp1
                     Console.WriteLine("Portul "+port);
                 }
             }
-            String ipS=ConfigurationManager.AppSettings["ip_server"];
+            String ipS=ConfigurationManager.AppSettings["ip"];
            
             if (ipS == null)
             {
@@ -53,7 +53,7 @@ namespace WindowsFormsApp1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            IServices server = new ServerProxy(ip, port);
+            IServices server = new ProtoServerProxy(ip, port);
             ClientCtrl ctrl=new ClientCtrl(server);
             Login win = new Login(ctrl);
             Application.Run(win);

@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace Utills.networking;
 
@@ -30,14 +31,5 @@ public abstract class AbstractServer
     }
 
     public abstract void processRequest(TcpClient client);
-    
-    public void Stop()
-    {
-        try 
-        {
-            server.Stop();
-        } catch (Exception e) {
-        throw new Exception("Closing server error ", e);
-        }
-    }
+        
 }

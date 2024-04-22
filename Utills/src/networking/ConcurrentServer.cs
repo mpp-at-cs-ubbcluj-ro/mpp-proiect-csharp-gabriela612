@@ -5,18 +5,22 @@ using Utills.services;
 
 namespace Utills.networking;
 
-public class ConcurrentServer : AbsConcurrentServer
+public abstract class ConcurrentServer:AbstractServer
 {
-    private IServices server;
-    private ClientWorker worker;
-    public ConcurrentServer(string host, int port, IServices server) : base(host, port)
+            
+    public ConcurrentServer(string host, int port) : base(host, port)
+    {}
+
+    public override void processRequest(TcpClient client)
     {
-        this.server = server;
-        Console.WriteLine("ConcurrentServer...");
+        Console.WriteLine("Con Ser : aici");
+        Thread t = createWorker(client);
+        Console.WriteLine("Con Ser : acolo");
+        t.Start();
+                
     }
-    protected override Thread createWorker(TcpClient client)
-    {
-        worker = new ClientWorker(server, client);
-        return new Thread(new ThreadStart(worker.run));
-    }
+
+    protected abstract  Thread createWorker(TcpClient client);
+   
 }
+

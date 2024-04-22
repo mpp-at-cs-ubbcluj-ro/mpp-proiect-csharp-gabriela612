@@ -20,3 +20,14 @@ C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\obj\Debug\Ser
 C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\obj\Debug\Server.csproj.Up2Date
 C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\obj\Debug\Server.exe
 C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\obj\Debug\Server.pdb
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\bin\Debug\Google.Protobuf.dll
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\bin\Debug\Google.Protobuf.pdb
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\bin\Debug\Google.Protobuf.xml
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\bin\Debug\System.Buffers.dll
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\bin\Debug\System.Memory.dll
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\bin\Debug\System.Buffers.xml
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\bin\Debug\System.Memory.xml
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\gabig\Desktop\Cdiez\mpp-proiect-csharp-gabriela612\Server\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
